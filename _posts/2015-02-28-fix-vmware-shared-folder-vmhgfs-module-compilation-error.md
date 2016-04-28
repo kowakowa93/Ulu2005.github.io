@@ -6,7 +6,7 @@ author: Ke
 layout: post
 guid: http://www.keblog.me/?p=190
 permalink: /2015/02/fix-vmware-shared-folder-vmhgfs-module-compilation-error/
-comments: true 
+comments: true
 dsq_thread_id:
   - 3556560439
 categories:
@@ -21,6 +21,8 @@ Today my ubuntu 14 updated its kernel to 3.16 then VMware shared folder disappea
 include/linux/kernel.h:793:27: error: ‘struct dentry’ has no member named ‘d_alias’</pre>
 
 This bug has already been reported to [VMware](https://communities.vmware.com/message/2477575 "https://communities.vmware.com/message/2477575"). Before VMware release official patch, we can manually fix this problem.
+
+<!--more-->
 
 1. Uncompress your VMwareTools-\*\\*\*-\*\*\***.tar.gz (eg. VMwareTools-9.9.2-2496486.tar.gz)
 
