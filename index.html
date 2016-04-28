@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<div class="home">
+
+    {% for post in paginator.posts %}
+    <div class="post-wrapper">
+        <h2 class="h2 entry-title">
+            <a href="{{ post.url }}">{{ post.title }}</a>
+        </h2>
+        <p class="author">
+            <span class="date" style="color:#999;">{{ post.date | date:"%Y-%m-%d" }}</span>
+        </p>
+        <div class="entry">
+            {{ post.content | split: '<!--more-->' | first }}
+            <p>
+                <a href="{{ post.url }}/#more" class="more-link btn">
+                    <span class="readmore">Read full article.. </span>
+                </a>
+            </p>
+        </div>
+    </div>
+    <br/>
+    {% endfor %}
+
+    <!-- Pagination links -->
+    <div class="pagination">
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="previous">&larr; Previous</a>&nbsp;&nbsp;
+        {% endif %}
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="next">Next &rarr;</a>
+        {% endif %}
+    </div>
+    <br />
+    <br />
+
+
+    <!--
+    <ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+    <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+    <h2>
+    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+</h2>
+</li>
+{% endfor %}
+</ul>
+<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+-->
+</div>
