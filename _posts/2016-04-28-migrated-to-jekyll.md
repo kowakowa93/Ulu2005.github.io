@@ -20,3 +20,6 @@ For migration process, I've done following things:
 3. Fix format and image issues in imported posts.
 4. Migrate comments in Disqus.
 5. Deploy the site to Github pages.
+
+<!--more-->
+To be honest, Jekyll's document is not satisfying. But luckily Jekyll itself is simple, the overall migration process is pleasant.
