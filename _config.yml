@@ -15,7 +15,7 @@ timezone: America/New_York
 excerpt_separator: <!--more-->
 
 # Plugins
-gems: [jekyll-paginate]
+gems: [jekyll-paginate, jekyll-sitemap]
 
 # Paginate
 paginate: 5
