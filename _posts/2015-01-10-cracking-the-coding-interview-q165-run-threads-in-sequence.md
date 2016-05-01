@@ -79,7 +79,7 @@ public:
         sem_wait(&sem3);
 
         mtx.lock();
-        cout  "third"  endl;
+        cout << "third" << endl;
         mtx.unlock();
     }
 private:
