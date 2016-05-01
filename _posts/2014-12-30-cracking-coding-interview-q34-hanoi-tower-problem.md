@@ -39,21 +39,21 @@ First, let’s check the base case.
 
 [<img src="http://www.keblog.me/wp-content/uploads/2014/12/hanoi_base_case.jpg" alt="hanoi tower" width="600" height="794" class="aligncenter size-full wp-image-130" srcset="//www.keblog.me/wp-content/uploads/2014/12/hanoi_base_case.jpg 600w, //www.keblog.me/wp-content/uploads/2014/12/hanoi_base_case-227x300.jpg 227w" sizes="(max-width: 600px) 100vw, 600px" />](http://www.keblog.me/wp-content/uploads/2014/12/hanoi_base_case.jpg)
 
-1. When only 1 disk
+### 1. When only 1 disk
 
 Move disk to destination tower directly. Nothing special.
 
-2. When 2 disks
+### 2. When 2 disks
 
 Move top disk onto middle tower and move larger disk onto destination tower. Then move small disk from middle tower to destination tower. Noticing that the middle tower is used as a buffer to store smaller disk. Because we always need to move largest disk onto destination when both source and destination towers have no smaller disks.
 
-3. When 3 disks
+### 3. When 3 disks
 
 From case 2 we know that we can move top 2 disks onto another tower in 3 steps, so here we move top 2 disks onto buffer tower. Then move largest disk onto destination. Repeat similiar 3 steps, 2 disks can be moved on to destination.
 
 For last 3 steps, the buffer tower is changed. The source tower is used as a buffer.
 
-4. When n disks (n >= 2)
+### 4. When n disks (n >= 2)
 
 Assume we need p steps to finish moving, at q step the situation is always like this:
 
