@@ -21,14 +21,14 @@ With the help of C++11 multi-threading library, this question about running thre
 
 Suppose we have the following code:
 
-```
+~~~c++
 public class Foo {
     public Foo() { ... }
     public void first() { ... }
     public void second() { ... }
     public void third() { ... }
 }
-```
+~~~
 
 The same instance of Foo will be passed to three different threads. Thread A will call first, thread B will call second, and thread C will call third. Design a mechanism to ensure that first is called before second and second is called before third.
 
@@ -40,7 +40,7 @@ The first method is using semaphores. But C++11 multi-threading library doesn&#8
 
 The general idea is to use binary semaphores to invoke specific thread in sequence. The following implementation works well on linux with GCC, but being compiled with Clang on Mac, race condition occurs(Clang warns that sem_init is deprecated, thus semaphores may not be well initialized).
 
-```
+~~~c++
 #include <iostream>;
 #include <thread>;
 #include <mutex>;
@@ -86,7 +86,7 @@ private:
     sem_t sem2;
     sem_t sem3;
 };
-```
+~~~
 
 As the function std::cout is not thread-safe, I used another mutex lock to gain exclusive access.
 
@@ -98,7 +98,7 @@ The program running result:
 
 The second method is to use condition variable. It's part of C++11 standard library. The general idea is to run different thread with different requirement. When specific requirement is satisfied, related thread will be awaked from wait status. Thus threads are sequentially invoked.
 
-```
+~~~c++
 #include <iostream>;
 #include <thread>;
 #include <mutex>;
@@ -163,7 +163,7 @@ int main(int argc, char *argv[])
 
     return 0;
 }
-```
+~~~
 
 The way member functions being passed into threads is tricky. It's slightly different from passing a normal function into a thread.
 
