@@ -24,3 +24,5 @@ paginate_path: "/page:num/"
 # Build settings
 markdown: kramdown
 highlighter: rouge
+kramdown:
+    input: GFM

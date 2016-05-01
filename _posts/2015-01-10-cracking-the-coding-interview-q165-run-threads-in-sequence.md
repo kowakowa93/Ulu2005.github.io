@@ -39,7 +39,7 @@ The first method is using semaphores. But C++11 multi-threading library doesn&#8
 
 The general idea is to use binary semaphores to invoke specific thread in sequence. The following implementation works well on linux with GCC, but being compiled with Clang on Mac, race condition occurs(Clang warns that sem_init is deprecated, thus semaphores may not be well initialized).
 
-{% highlight c++ %}
+```cplusplus
 #include <iostream>;
 #include <thread>;
 #include <mutex>;
@@ -85,7 +85,7 @@ private:
     sem_t sem2;
     sem_t sem3;
 };
-{% endhighlight %}
+```
 
 As the function std::cout is not thread-safe, I used another mutex lock to gain exclusive access.
 
@@ -95,9 +95,9 @@ The program running result:
 
 ## Solution 2
 
-The second method is to use condition variable. It&#8217;s part of C++11 standard library. The general idea is to run different thread with different requirement. When specific requirement is satisfied, related thread will be awaked from wait status. Thus threads are sequentially invoked.
+The second method is to use condition variable. It's part of C++11 standard library. The general idea is to run different thread with different requirement. When specific requirement is satisfied, related thread will be awaked from wait status. Thus threads are sequentially invoked.
 
-{% highlight c++ %}
+```cplusplus
 #include <iostream>;
 #include <thread>;
 #include <mutex>;
@@ -118,7 +118,7 @@ public:
         }
         job_rank++;
 
-        cout  "first"  endl;
+        cout << "first" << endl;
         cv.notify_all();
     }
 
@@ -129,7 +129,7 @@ public:
         }
         job_rank++;
 
-        cout  "second"  endl;
+        cout << "second" << endl;
         cv.notify_all();
     }
 
@@ -140,7 +140,7 @@ public:
         }
         job_rank++;
 
-        cout  "third"  endl;
+        cout << "third" << endl;
     }
 private:
     mutex mtx;
@@ -162,9 +162,9 @@ int main(int argc, char *argv[])
 
     return 0;
 }
-{% endhighlight %}
+```
 
-The way member functions being passed into threads is tricky. It&#8217;s slightly different from passing a normal function into a thread.
+The way member functions being passed into threads is tricky. It's slightly different from passing a normal function into a thread.
 
 ## Reference
 
