@@ -20,14 +20,15 @@ With the help of C++11 multi-threading library, this question about running thre
 ## Question
 
 Suppose we have the following code:
-{% highlight c++ %}
+
+```
 public class Foo {
     public Foo() { ... }
     public void first() { ... }
     public void second() { ... }
     public void third() { ... }
 }
-{% endhighlight %}
+```
 
 The same instance of Foo will be passed to three different threads. Thread A will call first, thread B will call second, and thread C will call third. Design a mechanism to ensure that first is called before second and second is called before third.
 
@@ -39,7 +40,7 @@ The first method is using semaphores. But C++11 multi-threading library doesn&#8
 
 The general idea is to use binary semaphores to invoke specific thread in sequence. The following implementation works well on linux with GCC, but being compiled with Clang on Mac, race condition occurs(Clang warns that sem_init is deprecated, thus semaphores may not be well initialized).
 
-```cplusplus
+```
 #include <iostream>;
 #include <thread>;
 #include <mutex>;
@@ -58,7 +59,7 @@ public:
 
     void first() {
         mtx.lock();
-        cout  "first"  endl;
+        cout << "first" << endl;
         mtx.unlock();
 
         sem_post(&sem2);
@@ -68,7 +69,7 @@ public:
         sem_wait(&sem2);
 
         mtx.lock();
-        cout  "second"  endl;
+        cout << "second" << endl;
         mtx.unlock();
 
         sem_post(&sem3);
@@ -97,7 +98,7 @@ The program running result:
 
 The second method is to use condition variable. It's part of C++11 standard library. The general idea is to run different thread with different requirement. When specific requirement is satisfied, related thread will be awaked from wait status. Thus threads are sequentially invoked.
 
-```cplusplus
+```
 #include <iostream>;
 #include <thread>;
 #include <mutex>;
