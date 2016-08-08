@@ -7,6 +7,8 @@ dsq_thread_id:
 permalink: /about/
 ---
 
-一个尚未脱离低级趣味的人。黑魂3已白，奥丁领域奋斗中。
+一个尚未脱离低级趣味的人。
+
+目标，平安里小学「第一软件工程师」~~湾区「最强九棒」~~。
 
 [<img src="http://card.psnprofiles.com/1/kyomanGCC.png" width="405" height="120" class="alignleft" />](http://psnprofiles.com/kyomanGCC)
