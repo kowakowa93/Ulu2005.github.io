@@ -20,4 +20,4 @@ categories:
 
 不管怎样，工作环境真的很棒，除了食堂没外界吹的那么好。希望明天Maverick晚饭能烧一点中国菜。
 
-![google](https://www.keblog.me/wp-content/upload/2016/08/google.jpg)
+![google](https://www.keblog.me/wp-content/uploads/2016/08/google.jpg)
