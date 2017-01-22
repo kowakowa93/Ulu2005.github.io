@@ -137,6 +137,4 @@ Valgrind is an instrumentation framework for building dynamic analysis tools. In
 
 Then you got output about your malloc program memory error. If there is a segment fault, it will tell you which line the segment fault happens. You can find more information about Valgrind on its [homepage](http://valgrind.org/).
 
-My article would stop here.
-
-One more advice about malloc lab: Your design would limit your score even if you made tons of optimizatoins.
+Have your malloc program well-designed before implementing. Debugging and optimizating it is painful.
