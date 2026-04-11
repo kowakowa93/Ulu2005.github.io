@@ -1,3 +1,7 @@
+@use "variables" as *;
+@use "sass:math";
+@use "sass:color";
+
 /**
  * Reset some basic elements
  */
@@ -30,11 +34,9 @@ body {
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
-ul, ol, dl, figure,
-%vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+ul, ol, dl, figure {
+    @extend %vertical-rhythm;
 }
 
 
@@ -83,6 +85,12 @@ li {
  */
 h1, h2, h3, h4, h5, h6 {
     font-weight: $base-font-weight;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    &:first-child {
+        margin-top: 0;
+    }
 }
 
 
@@ -95,7 +103,7 @@ a {
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: color.adjust($brand-color, $lightness: -15%);
     }
 
     &:hover {
@@ -112,7 +120,7 @@ a {
 blockquote {
     color: $grey-color;
     border-left: 4px solid $grey-color-light;
-    padding-left: $spacing-unit / 2;
+    padding-left: math.div($spacing-unit, 2);
     font-size: 18px;
     letter-spacing: -1px;
     font-style: italic;
@@ -167,22 +175,8 @@ pre {
     @include media-query($on-laptop) {
         max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
         max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
-}
-
-
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
+        padding-right: math.div($spacing-unit, 2);
+        padding-left: math.div($spacing-unit, 2);
     }
 }
 
