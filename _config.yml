@@ -26,6 +26,7 @@ paginate: 5
 paginate_path: "/page:num/"
 
 # Build settings
+future: true
 markdown: kramdown
 highlighter: rouge
 kramdown:
