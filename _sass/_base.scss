@@ -69,6 +69,12 @@ figcaption {
  */
 ul, ol {
     margin-left: $spacing-unit;
+    
+    /* Solarized Accent for List Markers */
+    li::marker {
+        color: var(--sol-orange);
+        font-weight: bold;
+    }
 }
 
 li {
@@ -81,11 +87,10 @@ li {
 
 
 /**
- * Headings
+ * Headings - Colorful Solarized Hierarchy
  */
 h1, h2, h3, h4, h5, h6 {
     font-weight: $base-font-weight;
-    color: var(--sol-blue);
     margin-top: 10px;
     margin-bottom: 10px;
 
@@ -93,6 +98,12 @@ h1, h2, h3, h4, h5, h6 {
         margin-top: 0;
     }
 }
+
+h1 { color: var(--sol-blue); }
+h2 { color: var(--sol-green); }
+h3 { color: var(--sol-yellow); }
+h4 { color: var(--sol-orange); }
+h5, h6 { color: var(--sol-violet); }
 
 
 
@@ -108,7 +119,7 @@ a {
     }
 
     &:hover {
-        color: $text-color;
+        color: var(--sol-cyan);
         text-decoration: underline;
     }
 }
@@ -116,12 +127,12 @@ a {
 
 
 /**
- * Blockquotes
+ * Blockquotes - Solarized Violet Accent
  */
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
-    padding-left: math.div($spacing-unit, 2);
+    color: var(--sol-text-drk);
+    border-left: 4px solid var(--sol-violet);
+    padding-left: 15px; // math.div($spacing-unit, 2)
     font-size: 18px;
     letter-spacing: -1px;
     font-style: italic;
@@ -138,25 +149,43 @@ blockquote {
  */
 pre,
 code {
+    font-family: "JetBrains Mono", "Fira Code", "Menlo", "Inconsolata", "Consolas", "Liberation Mono", "Courier New", monospace;
     font-size: 15px;
-    border: 1px solid $grey-color-light;
     border-radius: 3px;
-    background-color: #eef;
 }
 
+/* Inline Code */
 code {
     padding: 1px 5px;
+    background-color: var(--sol-bg-hlt);
+    color: var(--sol-magenta);
 }
 
+/* Code Blocks */
 pre {
     padding: 8px 12px;
     overflow-x: auto;
+    background-color: var(--sol-bg-hlt);
+    border: 1px solid var(--sol-bg-hlt);
 
     > code {
         border: 0;
         padding-right: 0;
         padding-left: 0;
+        background-color: transparent;
+        color: inherit;
     }
+}
+
+
+
+/**
+ * Horizontal Rule
+ */
+hr {
+    border: 0;
+    border-top: 2px solid var(--sol-bg-hlt);
+    margin: $spacing-unit 0;
 }
 
 
@@ -176,8 +205,8 @@ pre {
     @include media-query($on-laptop) {
         max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
         max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: math.div($spacing-unit, 2);
-        padding-left: math.div($spacing-unit, 2);
+        padding-right: 15px; // math.div($spacing-unit, 2)
+        padding-left: 15px; // math.div($spacing-unit, 2)
     }
 }
 
@@ -195,7 +224,7 @@ pre {
         vertical-align: middle;
 
         path {
-            fill: $grey-color;
+            fill: var(--sol-sec);
         }
     }
 }
