@@ -36,7 +36,7 @@ body {
  */
 p, blockquote, pre,
 ul, ol, dl, figure {
-    @extend %vertical-rhythm;
+    margin-bottom: 20px;
 }
 
 
@@ -85,6 +85,7 @@ li {
  */
 h1, h2, h3, h4, h5, h6 {
     font-weight: $base-font-weight;
+    color: var(--sol-blue);
     margin-top: 10px;
     margin-bottom: 10px;
 
@@ -103,7 +104,7 @@ a {
     text-decoration: none;
 
     &:visited {
-        color: color.adjust($brand-color, $lightness: -15%);
+        color: $brand-color;
     }
 
     &:hover {

@@ -189,7 +189,7 @@
 
 .post-meta {
     font-size: $small-font-size;
-    color: $grey-color;
+    color: var(--sol-green);
 }
 
 .post-link {
@@ -210,6 +210,7 @@
     font-size: 42px;
     letter-spacing: -1px;
     line-height: 1;
+    color: var(--sol-blue);
 
     @include media-query($on-laptop) {
         font-size: 36px;
@@ -221,6 +222,7 @@
 
     h2 {
         font-size: 32px;
+        color: var(--sol-blue);
 
         @include media-query($on-laptop) {
             font-size: 28px;
@@ -229,6 +231,7 @@
 
     h3 {
         font-size: 26px;
+        color: var(--sol-blue);
 
         @include media-query($on-laptop) {
             font-size: 22px;
@@ -237,6 +240,7 @@
 
     h4 {
         font-size: 20px;
+        color: var(--sol-blue);
 
         @include media-query($on-laptop) {
             font-size: 18px;

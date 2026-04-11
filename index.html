@@ -10,11 +10,11 @@ layout: default
             <a href="{{ post.url }}">{{ post.title }}</a>
         </h2>
         <p class="author">
-            <span class="date" style="color:#999;">{{ post.date | date:"%Y-%m-%d" }}</span>
+            <span class="date" style="color: var(--sol-green);">{{ post.date | date:"%Y-%m-%d" }}</span>
         </p>
         <div class="entry">
             {{ post.content | split: '<!--more-->' | first }}
-            <p>
+            <p style="margin-top: 10px;">
                 <a href="{{ post.url }}" class="more-link btn">
                     <span class="readmore">Read full article.. </span>
                 </a>
@@ -27,10 +27,10 @@ layout: default
     <!-- Pagination links -->
     <div class="pagination">
         {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="previous">&larr; Previous</a>&nbsp;&nbsp;
+        <a href="{{ paginator.previous_page_path }}" class="previous" style="color: var(--sol-green);">&larr; Previous</a>&nbsp;&nbsp;
         {% endif %}
         {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="next">Next &rarr;</a>
+        <a href="{{ paginator.next_page_path }}" class="next" style="color: var(--sol-green);">Next &rarr;</a>
         {% endif %}
     </div>
     <br />
