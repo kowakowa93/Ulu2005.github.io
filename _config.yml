@@ -10,9 +10,13 @@ title: Ke Blog
 description: > # this means to ignore newlines until "baseurl:"
   A blog for KE.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://keblog.me" # the base hostname & protocol for your site
+url: "https://www.keblog.me" # the base hostname & protocol for your site
 timezone: America/Los_Angeles
 excerpt_separator: <!--more-->
+
+# Build settings
+sass:
+  sass_dir: _sass
 
 # Plugins
 plugins: [jekyll-paginate, jekyll-sitemap]
